@@ -1054,29 +1054,19 @@ mv1:Input({ Title = "Walkspeed Value", Placeholder = "5", Callback = function(v)
 
 -- BHOP
 local bh = MovementTab:Section({ Title = "BHOP" })
+
+-- Khởi tạo biến của bạn (mặc định tắt)
+_G.AutoJump = false
+
 bh:Toggle({
-    Title = "BHOP (Button)",
-    Default = false,
-    Callback = function(s)
-        _G.BHOP = s
-        if s then
-            local scale = DConfiguration.Settings.GuiScale.BHOP or 0
-            CreateFloatingButton("BHOPButton", "BHOP: ON", 0.15 + scale, 0.1 + scale, function(b)
-                _G.BHOP = not _G.BHOP
-                if _G.BHOP then b.Text = "BHOP: ON" else b.Text = "BHOP: OFF"; DFunctions.ResetBHOP() end
-            end)
-        else
-            _G.BHOP = false
-            DestroyFloatingButton("BHOPButton")
-            DFunctions.ResetBHOP()
-        end
+    Title = "Auto Jump",
+    Desc = "Not for use now,pls use auto bounce set all to 1",
+    Value = false,
+    Callback = function(Value)
+        -- Liên kết nút gạt với biến _G.AutoJump của bạn
+        _G.AutoJump = Value
     end
 })
-bh:Dropdown({ Title = "BHOP Version", Items = {"Acceleration","Ground Acceleration","No Acceleration"}, Default = "Acceleration", Callback = function(v) DConfiguration.Misc.MovementModification.BHOP.Type = v end })
-bh:Dropdown({ Title = "Jump Type", Items = {"Simulated","?"}, Default = "Simulated", Callback = function(v) DConfiguration.Misc.MovementModification.BHOP.JumpType = v end })
-bh:Input({ Title = "Acceleration (Negative)", Placeholder = "-0.1", Callback = function(v) DConfiguration.Misc.MovementModification.BHOP.Acceleration = tonumber(v) or -0.1 end })
-bh:Toggle({ Title = "Auto Acceleration", Default = false, Callback = function(s) DConfiguration.Misc.MovementModification.BHOP.AutoAcceleration = s end })
-bh:Input({ Title = "Max Speed", Placeholder = "70", Callback = function(v) DConfiguration.Misc.MovementModification.BHOP.MaxSpeed = tonumber(v) or 70 end })
 
 -- Emote Dash
 local ed = MovementTab:Section({ Title = "Emote Dash" })
@@ -1453,4 +1443,26 @@ WindUI:Notify({
     Content = "Elaina X Hub - Đầy đủ chức năng",
     Duration = 3,
 })
-print("[Elaina X Hub] Script hoàn chỉnh.")
+-- MÁY CHỦ AUTO JUMP (BYPASS EVADE)
+task.spawn(function()
+    local vim = game:GetService("VirtualInputManager")
+    local Players = game:GetService("Players")
+    local LocalPlayer = Players.LocalPlayer
+
+    while task.wait() do
+        if _G.AutoJump then
+            local char = LocalPlayer.Character
+            if char then
+                local hum = char:FindFirstChildOfClass("Humanoid")
+                -- Kiểm tra nếu đang sống và chân đang chạm đất
+                if hum and hum.Health > 0 and hum.FloorMaterial ~= Enum.Material.Air then
+                    -- Ép hệ thống tự bấm phím Space liên tục
+                    vim:SendKeyEvent(true, Enum.KeyCode.Space, false, game)
+                    task.wait(0.01)
+                    vim:SendKeyEvent(false, Enum.KeyCode.Space, false, game)
+                    task.wait(0.1) -- Nghỉ một nhịp nhỏ để game kịp phản hồi
+                end
+            end
+        end
+    end
+end)
