@@ -870,8 +870,8 @@ local Window = WindUI:CreateWindow({
     Title = "Elaina X Hub - Evade Legacy",
     Icon = "rbxassetid://93988707439364",
     Author = "Darnyx",
-    Size = UDim2.new(0, 540, 0, 450),
-    Transparent = true,                     
+    Size = UDim2.new(0, 580, 0, 460),
+    Transparent = true,
     Theme = "Dark",
     Background = "rbxassetid://119474386760815"
 })
