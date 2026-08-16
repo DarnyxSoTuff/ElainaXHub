@@ -868,18 +868,22 @@ end
 -- 15. TẠO GIAO DIỆN WIND UI
 local Window = WindUI:CreateWindow({
     Title = "Elaina X Hub - Evade Legacy",
-    Icon = "home",
+    Icon = "rbxassetid://93988707439364",
     Author = "Darnyx",
-    Size = UDim2.new(0, 540, 0, 450)
+    Size = UDim2.new(0, 540, 0, 450),
+    Transparent = true,                     
+    Theme = "Dark",
+    Background = "rbxassetid://119474386760815"
 })
 
+-- Nut mo Menu keo re (Drag) co hinh Elaina
 Window:EditOpenButton({
-    Title = "Open Elaina Hub",
-    Icon = "door-open",
+    Title = "Elaina Hub",
+    Icon = "rbxassetid://135881675867670",
+    CornerRadius = UDim2.new(0, 10, 0, 10),
+    StrokeThickness = 1,
     Enabled = true
 })
-
-
 
 local MainTab = Window:Tab({ Title = "Main", Icon = "house" })
 local NextbotTab = Window:Tab({ Title = "Anti Nextbots", Icon = "shield" })
@@ -888,8 +892,10 @@ local VisualTab = Window:Tab({ Title = "Visual", Icon = "eye" })
 local InfoTab = Window:Tab({ Title = "Info", Icon = "info" })
 local ConfigTab = Window:Tab({ Title = "Config", Icon = "settings" })
 local ExtensionTab = Window:Tab({ Title = "Extension", Icon = "box" })
--- Thêm nội dung hiển thị cho InfoTab
+
+-- Them noi dung hien thi cho InfoTab
 local infoSec = InfoTab:Section({ Title = "Script Information" })
+
 
 infoSec:Button({
     Title = "Script: Elaina X Hub",
