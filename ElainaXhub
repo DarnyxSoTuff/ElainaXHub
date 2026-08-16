@@ -869,21 +869,18 @@ end
 -- 15. TAO GIAO DIEN WIND UI
 local Window = WindUI:CreateWindow({
     Title = "Elaina X Hub - Evade Legacy",
-    Icon = "rbxassetid://93988707439364",
+    Icon = "rbxassetid://93988707439364", 
     Author = "Darnyx",
-    Size = UDim2.new(0, 580, 0, 460),
-    Transparent = true,
-    Theme = "Dark"
+    Size = UDim2.new(0, 540, 0, 450)
 })
 
--- Nut mo Menu keo re (Drag) co hinh Elaina
+-- Nút mở menu chính chủ có hình Elaina (Kéo rê / Drag thoải mái)
 Window:EditOpenButton({
     Title = "Elaina Hub",
     Icon = "rbxassetid://135881675867670",
-    CornerRadius = UDim2.new(0, 10, 0, 10),
-    StrokeThickness = 1,
     Enabled = true
 })
+
 
 local MainTab = Window:Tab({ Title = "Main", Icon = "house" })
 local NextbotTab = Window:Tab({ Title = "Anti Nextbots", Icon = "shield" })
