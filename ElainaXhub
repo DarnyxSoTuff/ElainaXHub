@@ -886,14 +886,6 @@ Window:EditOpenButton({
 })
 
 local MainTab = Window:Tab({ Title = "Main", Icon = "house" })
-local mainSec = MainTab:Section({ Title = "Wandering Witch: Elaina" })
-mainSec:Paragraph({
-    Title = "Elaina X Hub",
-    Desc = "Developer: Darnyx",
-    Image = "rbxassetid://119474386760815",
-    ImageSize = 90
-})
-
 local NextbotTab = Window:Tab({ Title = "Anti Nextbots", Icon = "shield" })
 local MovementTab = Window:Tab({ Title = "Movement", Icon = "walk" })
 local VisualTab = Window:Tab({ Title = "Visual", Icon = "eye" })
