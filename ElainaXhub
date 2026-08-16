@@ -865,16 +865,19 @@ function DestroyFloatingButton(name)
     if gui then gui:Destroy() end
 end
 
--- 15. TẠO GIAO DIỆN WIND UI
+-- 15. TAO GIAO DIEN WIND UI
 local Window = WindUI:CreateWindow({
     Title = "Elaina X Hub - Evade Legacy",
     Icon = "rbxassetid://93988707439364",
     Author = "Darnyx",
     Size = UDim2.new(0, 580, 0, 460),
     Transparent = true,
-    Theme = "Dark",
-    Background = "rbxassetid://119474386760815"
+    Theme = "Dark"
 })
+
+-- Tạo hình nền Elaina chìm phía sau (Không làm che mất nút bấm & Tab)
+Window:SetBackground("rbxassetid://119474386760815")
+Window:SetBackgroundTransparency(0.5) -- Làm mờ ảnh nền 50% để nổi bật các nút bấm
 
 -- Nut mo Menu keo re (Drag) co hinh Elaina
 Window:EditOpenButton({
@@ -884,6 +887,7 @@ Window:EditOpenButton({
     StrokeThickness = 1,
     Enabled = true
 })
+
 
 local MainTab = Window:Tab({ Title = "Main", Icon = "house" })
 local NextbotTab = Window:Tab({ Title = "Anti Nextbots", Icon = "shield" })
