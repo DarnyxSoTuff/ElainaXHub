@@ -1108,7 +1108,7 @@ lag:Toggle({
         _G.LAG = s
         if s then
             local scale = DConfiguration.Settings.GuiScale.LagSwitch or 0
-            CreateFloatingButton("LagButton", "Lag: OFF", 0.15 + scale, 0.1 + scale, function(b)
+            CreateFloatingButton("Off", "Lag: Start lag", 0.15 + scale, 0.1 + scale, function(b)
                 DFunctions.StartLag(DConfiguration.Misc.Utilities.LagSwitch.MSDelay)
                 b.Text = "Lag: ON"
                 task.wait(0.3)
@@ -1199,7 +1199,7 @@ cactusSec:Input({ Title = "Size", Placeholder = "10", Callback = function(v) cac
 local macroSec = MovementTab:Section({ Title = "Macro Emote" })
 macroSec:Button({
     Title = "Execute Macro Emote",
-    Desc = "Click to run the Macro Emote script",
+    Desc = "Turn on and a invisible marco button in emote button",
     Callback = function()
         pcall(function()
             loadstring(game:HttpGet("https://pastebin.com/raw/AM2VREKi"))()
