@@ -74,7 +74,7 @@ VerifyBtn.Size = UDim2.new(0.85, 0, 0, 36)
 VerifyBtn.Position = UDim2.new(0.075, 0, 0.47, 0)
 VerifyBtn.BackgroundColor3 = Color3.fromRGB(120, 80, 255)
 VerifyBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-VerifyBtn.Text = "XÁC MINH KEY"
+VerifyBtn.Text = "KEY VERIFY"
 VerifyBtn.TextSize = 14
 VerifyBtn.Font = Enum.Font.SourceSansBold
 VerifyBtn.Parent = MainFrame
@@ -102,7 +102,7 @@ GetBtnCorner.Parent = GetKeyBtn
 VerifyBtn.MouseButton1Click:Connect(function()
     local input = KeyInput.Text:gsub("%s+", "")
     if input == CorrectKey then
-        VerifyBtn.Text = "KEY CHÍNH XÁC! ĐANG TẢI HUB..."
+        VerifyBtn.Text = "SUCESS! LOADING SCRIPT..."
         VerifyBtn.BackgroundColor3 = Color3.fromRGB(40, 180, 90)
         task.wait(0.8)
         ScreenGui:Destroy()
@@ -111,10 +111,10 @@ VerifyBtn.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/DarnyxSoTuff/Elain/refs/heads/main/Elaina-Keyless"))()
 
     else
-        VerifyBtn.Text = "KEY SAI! VUI LÒNG THỬ LẠI"
+        VerifyBtn.Text = "WRONG KEY! PLEASE TRY AGAIN"
         VerifyBtn.BackgroundColor3 = Color3.fromRGB(210, 50, 50)
         task.wait(1.5)
-        VerifyBtn.Text = "XÁC MINH KEY"
+        VerifyBtn.Text = "KEY VERIFY"
         VerifyBtn.BackgroundColor3 = Color3.fromRGB(120, 80, 255)
     end
 end)
@@ -125,7 +125,7 @@ GetKeyBtn.MouseButton1Click:Connect(function()
     elseif toclipboard then
         toclipboard(DiscordLink)
     end
-    GetKeyBtn.Text = "ĐÃ SAO CHÉP LINK DISCORD!"
+    GetKeyBtn.Text = COPIED LINK DISCORD!"
     task.wait(1.5)
     GetKeyBtn.Text = "GET KEY (COPY LINK DISCORD)"
 end)
